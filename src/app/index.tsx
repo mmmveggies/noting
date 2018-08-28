@@ -1,12 +1,16 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 
-// import { NotePage, KeyboardDemo } from './components'
 import Keyboard from './game/Keyboard'
-import { KeyboardDemo } from './components'
+// import { KeyboardDemo, NotePage } from './components'
+import { NotePage } from './components'
 
+const keyboard = new Keyboard()
 
 // render react DOM
 export const App = hot(module)(() => (
-  <KeyboardDemo keyboard={new Keyboard()} />
+  <>
+    {/* <KeyboardDemo keyboard={keyboard} /> */}
+    <NotePage keyboard={keyboard} />
+  </>
 ));

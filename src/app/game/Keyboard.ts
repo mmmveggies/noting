@@ -6,6 +6,7 @@ export interface NoteEvent {
   note: {
     number: number
     name: string
+    octave: number
   }
   velocity: number
   rawVelocity: number

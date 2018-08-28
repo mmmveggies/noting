@@ -5,7 +5,7 @@ import * as tnote from 'tonal-note'
 import * as tscale from 'tonal-scale'
 // import tdict from 'tonal-dictionary'
 
-const tnotes = tnote.names()
+const tnotes: string[] = tnote.names()
 // const tscales = tscale.names()
 
 export function randomItems<T>(arr: T[], count: number): T[] {
@@ -24,14 +24,12 @@ export function t2v(tnote: string) {
   return `${tnote.toLowerCase()}/4`
 }
 
-export function randomNotes() {
-  const [ key ] = randomItems<string>(tnotes, 1)
-
+export function randomNotes(key = randomItems(tnotes, 1)[0]) {
   const scale: string[] = tscale.notes(key, 'major')
 
   const vnotes = Array.from({ length: 4 }, () => new VF.StaveNote({
     clef: 'treble',
-    keys: randomItems(scale, 2).map(t2v),
+    keys: randomItems(scale, 1).map(t2v),
     duration: 'q'
   }))
 
